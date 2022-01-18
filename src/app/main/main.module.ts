@@ -11,7 +11,6 @@ import { MainComponent } from './main.component';
     CommonModule,
     MainRoutingModule
   ],
-  providers: [],
-  bootstrap: [MainComponent]
+  providers: []
 })
 export class MainModule { }
