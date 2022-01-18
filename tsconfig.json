@@ -22,7 +22,10 @@
       "es2020",
       "dom"
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": [
+      "cypress"
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
