@@ -1,5 +1,3 @@
-/// <reference types="Cypress">
-
 describe('Home Page', () => {
 
     it('should display the app name on the home page', () => {
@@ -10,7 +8,7 @@ describe('Home Page', () => {
 
     it('should update preview command in the terminal area based on selected button', () => {
         cy.visit('/')
-        cy.get('.card-container > :nth-child(3)').click();
+        cy.get('[data-cy="button-i-want"]').click();
         cy.get('.terminal').should('contain.text', 'ng add @angular/pwa');
     })
 })
