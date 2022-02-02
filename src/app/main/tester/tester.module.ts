@@ -1,7 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { TesterRoutingModule } from './tester-routing.module';
 import { TesterComponent } from './tester.component';
+
 
 @NgModule({
   declarations: [
@@ -10,7 +12,6 @@ import { TesterComponent } from './tester.component';
   imports: [
     CommonModule,
     TesterRoutingModule
-  ],
-  providers: []
+  ]
 })
 export class TesterModule { }

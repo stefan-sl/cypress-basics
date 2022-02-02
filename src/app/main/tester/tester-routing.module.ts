@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TesterComponent } from './tester.component';
 
-
-export const routes: Routes = [
-    {
-        path: '',
-        component: TesterComponent
-    }
-];
+const routes: Routes = [{ path: '', component: TesterComponent }];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class TesterRoutingModule { }
