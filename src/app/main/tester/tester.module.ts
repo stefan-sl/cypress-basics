@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TesterRoutingModule } from './tester-routing.module';
 import { TesterComponent } from './tester.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({

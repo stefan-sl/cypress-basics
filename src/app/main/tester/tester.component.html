@@ -1,3 +1,10 @@
 <div class="tester {{(class$ | async)}}">
     <h1>Tests Page</h1>
+
+    <button (click)="handleHttpRequest()"
+        data-cy="http-request-button">Make HTTP Request</button>
+
+    <h2>Retrieved People</h2>
+    <div class="retrieved-person"
+        *ngFor="let person of (retrievedPersons$ | async)">{{person.name}}</div>
 </div>

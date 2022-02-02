@@ -1,6 +1,19 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { filter, map, Observable, shareReplay, Subject, takeUntil } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { any } from 'cypress/types/bluebird';
+
+export interface Person {
+  address: any;
+  company: any;
+  email: string;
+  id: number;
+  name: string;
+  phone: string;
+  username: string;
+  website: string;
+}
 
 @Component({
   selector: 'app-tester',
@@ -10,23 +23,16 @@ import { filter, map, Observable, shareReplay, Subject, takeUntil } from 'rxjs';
 export class TesterComponent implements OnInit, OnDestroy {
 
   public class$: Observable<string>;
+  public retrievedPersons$: Observable<Person[]>;
 
   private _destroy$: Subject<boolean> = new Subject();
 
   constructor(
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private _http: HttpClient
   ) { }
 
   public ngOnInit(): void {
-    console.log('Tester component');
-
-    this._route.queryParams.pipe(
-      filter(p => !!p),
-      takeUntil(this._destroy$)
-    ).subscribe(params => {
-      console.log('Params', params);
-    })
-
     this.class$ = this._route.queryParams.pipe(
       filter(p => !!p),
       map(p => {
@@ -38,6 +44,12 @@ export class TesterComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
       this._destroy$.next(true);
+  }
+
+  public handleHttpRequest() {
+    this.retrievedPersons$ = this._http.get('https://jsonplaceholder.cypress.io/users').pipe(
+      map(response => response as Person[]),
+    );
   }
 
 }
