@@ -7,7 +7,7 @@ describe('Main page tester links Malcolm version', () => {
      * I want to verify:
      * 
      * 1. That when I click on each button it goes to the correct page
-     * 2. That the query params are correct for each color
+     * 2. That the query params are correct for each color. i.e. the URL 'includes' the correct query params
      */
 
 
