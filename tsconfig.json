@@ -25,7 +25,8 @@
     "strictNullChecks": true,
     "types": [
       "cypress"
-    ]
+    ],
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
