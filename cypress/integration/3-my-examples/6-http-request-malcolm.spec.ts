@@ -20,7 +20,7 @@ describe('Tester page HTTP request', () => {
 
     /**
      * For the second test we want to:
-     * 1. Simulate a click on the 'Make HTTP Request' button
+     * 1. Simulate a click on the 'Get People' button
      * 2. Use Cypress to intercept the API Request to the URL
      * 3. Wait for the request to finish
      * 4. Verify that there are 10 users listed on the page

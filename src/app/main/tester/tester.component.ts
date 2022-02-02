@@ -24,6 +24,7 @@ export class TesterComponent implements OnInit, OnDestroy {
 
   public class$: Observable<string>;
   public retrievedPersons$: Observable<Person[]>;
+  public comments$: Observable<any[]>;
 
   private _destroy$: Subject<boolean> = new Subject();
 
@@ -48,6 +49,12 @@ export class TesterComponent implements OnInit, OnDestroy {
 
   public handleHttpRequest() {
     this.retrievedPersons$ = this._http.get('https://jsonplaceholder.cypress.io/users').pipe(
+      map(response => response as Person[]),
+    );
+  }
+
+  public handleHttpRequest2() {
+    this.comments$ = this._http.get('https://jsonplaceholder.cypress.io/comments').pipe(
       map(response => response as Person[]),
     );
   }

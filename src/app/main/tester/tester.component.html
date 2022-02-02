@@ -2,9 +2,18 @@
     <h1>Tests Page</h1>
 
     <button (click)="handleHttpRequest()"
-        data-cy="http-request-button">Make HTTP Request</button>
+        data-cy="http-request-button">Get People</button>
 
     <h2>Retrieved People</h2>
     <div class="retrieved-person"
         *ngFor="let person of (retrievedPersons$ | async)">{{person.name}}</div>
+
+    <button (click)="handleHttpRequest2()"
+        data-cy="get-comments-button">Get Comments</button>
+
+    <ng-container *ngIf="comments$ | async">
+        <h2>Comments</h2>
+        <div data-cy="number-of-comments">There are {{(comments$ | async)?.length}} comments</div>
+        <div data-cy="first-comments">First comment is by {{(comments$ | async)?.[0]?.email}}</div>
+    </ng-container>
 </div>
